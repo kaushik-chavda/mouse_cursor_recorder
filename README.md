@@ -28,7 +28,7 @@ Mouse Tracker is a web application that tracks mouse movements and captures imag
    
 2. Open a web browser and go to http://localhost:5000/ to access the application.
 3. Move the mouse and click the left mouse button to track movements and capture images.
-4. To view the captured images, go to http://localhost:5000/view_images.
+4. To view the captured images, go to http://localhost:5000/images.
 
 
 ## Requirements
