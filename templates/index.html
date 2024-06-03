@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse Tracker</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.js"></script>
+</head>
+<body>
+    <h1>Click anywhere to capture mouse movements!</h1>
+    <script type="text/javascript">
+        var socket = io();
+        var client_id = null;
+
+        socket.on('client_id', function(data) {
+            client_id = data.client_id;
+        });
+
+        document.addEventListener('mousedown', function(event) {
+            if (event.button === 0 && client_id !== null) { // Check if left mouse button is clicked and client_id is not null
+                var x = event.clientX;
+                var y = event.clientY;
+                socket.emit('mouse_event', {'client_id': client_id, 'x': x, 'y': y, 'button_pressed': true});
+            }
+        });
+    </script>
+</body>
+</html>
